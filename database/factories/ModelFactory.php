@@ -28,6 +28,16 @@ $factory->define(App\Article::class, function (Faker\Generator $faker) {
     return [
         'title' => $faker->title,
         'content' => $faker->paragraph,
+        'images' =>$faker->imageUrl($width = 256, $height = 256),
+        'user_id' => $faker->numberBetween(1, 30),
+    ];
+});
+
+$factory->define(App\Comment::class, function (Faker\Generator $faker) {
+
+    return [
+        'content' => $faker->paragraph,
+        'article_id' => $faker->numberBetween(1, 30),
         'user_id' => $faker->numberBetween(1, 30),
     ];
 });

@@ -16,6 +16,7 @@ class ForeignKey extends Migration
         Schema::table('articles', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users');
         });
+
     }
 
     /**

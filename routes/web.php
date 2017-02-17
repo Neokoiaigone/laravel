@@ -27,3 +27,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 Route::resource('/article', 'ArticleController');
+Route::resource('/form', 'FormController');
+Route::resource('/comment', 'CommentController');
+Route::resource('/admin', 'AdminArticleController');
+
