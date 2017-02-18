@@ -59,6 +59,9 @@
                             <li><a href="{{ route('login') }}">Login</a></li>
                             <li><a href="{{ route('register') }}">Register</a></li>
                         @else
+                            @if (Auth::check() and auth()->user()->isAdmin)
+                                <li><a href="{{ route('admin.index') }}">Administration</a></li>
+                            @endif
                             <li><a href="{{ route('article.create') }}">Publication</a></li>
                             <li><a href="{{ route('article.index') }}">Article</a></li>
                             <li><a href="{{ route('form.index') }}">Contact</a></li>
