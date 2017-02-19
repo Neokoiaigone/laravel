@@ -11,6 +11,7 @@
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
+        <link href="css/grayscale.min.css" rel="stylesheet">
         <style>
             html, body {
                 background-color: #fff;
@@ -50,7 +51,7 @@
             }
 
             .links > a {
-                color: #636b6f;
+                color: white;
                 padding: 0 25px;
                 font-size: 12px;
                 font-weight: 600;
@@ -79,19 +80,20 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
-            </div>
+            <!-- Intro Header -->
+                <header class="intro">
+                    <div class="intro-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-8 col-md-offset-2">
+                                    <h1 class="brand-heading">Web Agency</h1>
+                                    <p class="intro-text">Besoin d'un site web ?
+                                        <br>Crée par E & L</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </header>
         </div>
     </body>
 </html>
