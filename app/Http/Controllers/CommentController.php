@@ -104,7 +104,7 @@ class CommentController extends Controller
         $input = $request->input();
 
         $comment->fill($input)->save();
-        $article_id = $request->article_id;
+        $article_id = $comment->article_id;
         return redirect()->route('article.show', compact('article_id'))
             ->with('success', 'Le commentaire a bien été modifié !');
     }
