@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Article;
+use App\Categories;
 use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -55,9 +56,10 @@ class ArticleController extends Controller
 
         $input['user_id'] = Auth::user()->id;
         $article = new Article;
-
+        $id = $input['categories_id'];
         $article->fill($input)->save();
-        return redirect()->route('article.index')
+
+        return redirect()->route('article.index', compact('id'))
             ->with('success', 'L\'article a bien été publié !');
     }
 
