@@ -59,6 +59,7 @@
                     @include('messages.error')
                 @foreach($articles as $article)
                     <h2 class="post-title">
+                        <img src="{{ $article->images }}" style: width="150px">
                         <a href="{{ route('article.show', $article->id) }}">{{$article->title}}</a>
                     </h2>
                         <h3 class="post-subtitle">
