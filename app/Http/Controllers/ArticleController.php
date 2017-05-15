@@ -55,8 +55,8 @@ class ArticleController extends Controller
         $input = $request->input();
 
         $input['user_id'] = Auth::user()->id;
+        $input['categories_id'] = $request->categories;
         $article = new Article;
-        $id = $input['categories_id'];
         $article->fill($input)->save();
 
         return redirect()->route('article.index', compact('id'))
@@ -109,8 +109,6 @@ class ArticleController extends Controller
             ]);
         $article = Article::find($id);
         $input = $request->input();
-
-
         $article->fill($input)->save();
         return redirect()->route('article.show', compact('id'))
             ->with('success', 'L\'article a bien été modifié !');
