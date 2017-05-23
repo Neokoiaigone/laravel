@@ -15,5 +15,8 @@ p a,a{
 
 a:hover{
     text-decoration: none;
+}
 
+.page-footer{
+    background-color: #00E094;
 }
