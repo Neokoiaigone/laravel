@@ -6,10 +6,8 @@
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                     <div class="site-heading">
-                        <h1>DÉFI</h1>
-                        <hr class="small">
-                        <span class="subheading"></span>
-                    </div>
+                        <h1>{{ $article->title }}</h1>
+
                 </div>
             </div>
         </div>
@@ -22,7 +20,6 @@
                     @include('messages.success')
                     @include('messages.error')
                     <div class="panel-body">
-                        <h1>{{ $article->title }}</h1>
                         <img src="{{ $article->images }}" style: width="150px">
                         <h2>{{ $article->content }}</h2>
                         Partager l'article : {{URL::to('/article/'.$article->id)}}
