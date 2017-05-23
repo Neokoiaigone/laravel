@@ -53,7 +53,7 @@
                 Menu <i class="fa fa-bars"></i>
             </button>
             <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="{{'img/mhb.svg'}}" alt="mhb" width="75" height="75">
+                <img src="{{'img/logosvg2.svg'}}" alt="mhb" width="120" height="120">
             </a>
         </div>
 
