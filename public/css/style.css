@@ -17,6 +17,9 @@ a:hover{
     text-decoration: none;
 }
 
+nav{
+    box-shadow: none;
+}
 .page-footer{
     background-color: #00E094;
 }
