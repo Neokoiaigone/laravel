@@ -14,14 +14,14 @@
     </header>
 <div class="container">
         <div class="row">
-            <div class="col-md-8 col-md-offset-2">
+            <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">Article Posté par : {{ $article->user->name }} </div>
                     @include('messages.success')
                     @include('messages.error')
                     <div class="panel-body">
-                        <img src="{{ $article->images }}" style: width="150px">
-                        <h2>{{ $article->content }}</h2>
+                        <img src="{{ $article->images }} "style: width="750vw;">
+                        <p class="textearticle">{{ $article->content }}</p>
                         Partager l'article : {{URL::to('/article/'.$article->id)}}
                         <form method="POST" action="{{ route('article.destroy', $article->id)}}">
                             {{csrf_field()}}
