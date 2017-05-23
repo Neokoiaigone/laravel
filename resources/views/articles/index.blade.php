@@ -27,7 +27,7 @@
                 @foreach($articles as $article)
                     @if($article->categories_id = 4)
                         <div class="post-title">
-                            <img src="{{ $article->images }}" style: width="150px">
+                            <img src="{{ $article->images }}" style: width="200vw">
                             <h2>
                                 <a href="{{ route('article.show', $article->id) }}">{{$article->title}}</a>
                             </h2>

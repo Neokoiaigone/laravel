@@ -20,7 +20,7 @@
                     @include('messages.success')
                     @include('messages.error')
                     <div class="panel-body">
-                        <img src="{{ $article->images }} "style: width="750vw;">
+                        <img src="{{ $article->images }} "style: width="100%;">
                         <hr><p class="textearticle">{{ $article->content }}</p>
                         <hr>Partager l'article : {{URL::to('/article/'.$article->id)}}
                         <form method="POST" action="{{ route('article.destroy', $article->id)}}">
