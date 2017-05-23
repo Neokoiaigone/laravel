@@ -31,8 +31,10 @@ select{
     display: inline!important;
 }
 
-.textearticle{
-
+.textearticle {
     font-size: 1.5em;
-
+}
+.mhb {
+    width:20vh;
+    height:20vh;
 }
