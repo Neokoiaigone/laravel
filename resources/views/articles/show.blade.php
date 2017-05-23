@@ -21,19 +21,19 @@
                     @include('messages.error')
                     <div class="panel-body">
                         <img src="{{ $article->images }} "style: width="750vw;">
-                        <p class="textearticle">{{ $article->content }}</p>
-                        Partager l'article : {{URL::to('/article/'.$article->id)}}
+                        <hr><p class="textearticle">{{ $article->content }}</p>
+                        <hr>Partager l'article : {{URL::to('/article/'.$article->id)}}
                         <form method="POST" action="{{ route('article.destroy', $article->id)}}">
                             {{csrf_field()}}
                             <div class="panel-heading">
                                 @if(Auth::check() and auth()->user()->isAdmin or Auth::check() and $articles = Auth::user()->id == $article->user->id)
-                                <a href="{{ route('article.edit', $article->id) }}" class="btn btn-primary">Modifier</a>
+                                <a href="{{ route('article.edit', $article->id) }}" class="col-md-5 btn btn-primary">Modifier</a>
                                 <input type="hidden" name="_method" value="DELETE">
-                                <input class="btn btn-danger "type="submit" value="supprimer">
+                                <input class="btn col-md-5 btn-danger "type="submit" value="supprimer">
                                 @endif
                             </div>
                         </form>
-                        Nombre de likes : {{$article->likeCount}}
+                        <p class="aere">Nombre de likes : {{$article->likeCount}}
                         @if( $article->liked() )
                             <form method="POST" action="{{ route('article.unlike', $article->id) }}">
                                 {{ csrf_field() }}
@@ -45,6 +45,7 @@
                                 <input type="submit" value="Like" class="btn btn-success">
                             </form>
                         @endif
+                        </p>
 
                     <div class="panel-body">
                         @if(Auth::check())
@@ -63,11 +64,11 @@
                             <p>Commentaire Posté par : {{$comment->user->name}} </p>
                             <p>{{ $comment->content }}</p>
                                 @if(Auth::check() and auth()->user()->isAdmin or Auth::check() and $comments = Auth::user()->id == $comment->user->id)
-                                <a href="{{ route('comment.edit', $comment->id) }}" class="btn btn-primary">Modifier</a>
+                                <a href="{{ route('comment.edit', $comment->id) }}" class="btn col-md-5 btn-primary">Modifier</a>
                                     <form method="POST" action="{{ route('comment.destroy', $comment->id) }}">
                                         {{ csrf_field() }}
                                         <input type="hidden" name="_method" value="delete">
-                                        <input type="submit" value="Supprimer" class="btn btn-danger">
+                                        <input type="submit" value="Supprimer" class="btn col-md-5 btn-danger">
                                         <br><br>
                                     </form>
                                 @else

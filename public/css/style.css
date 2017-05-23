@@ -13,7 +13,6 @@ p a,a{
 }
 .site-heading{
     width: 50em !important;
-    color: #00E094 !important;
 }
 
 a:hover{
@@ -37,4 +36,8 @@ select{
 .mhb {
     width:20vh;
     height:20vh;
+}
+.aere{
+    padding-top: 10vh;
+    padding-bottom: 5vh;
 }
