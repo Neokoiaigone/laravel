@@ -25,7 +25,7 @@
                 @include('messages.success')
                 @include('messages.error')
                 @foreach($articles as $article)
-                    @if($article->categories_id == 4)
+                    @if($article->categories_id = 4)
                         <div class="post-title">
                             <img src="{{ $article->images }}" style: width="150px">
                             <h2>
