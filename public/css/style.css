@@ -27,3 +27,9 @@ nav{
 select{
     display: inline!important;
 }
+
+.mhb {
+
+    width:20vh;
+    height:20vh;
+}
