@@ -7,6 +7,8 @@ use App\Categories;
 use App\Comment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use \Conner\Likeable\Likeable;
+
 
 class ArticleController extends Controller
 {
@@ -127,4 +129,23 @@ class ArticleController extends Controller
         return redirect()->route('article.index')
             ->with('success', 'L\'article a bien été supprimé !');
     }
+
+    public function like($id)
+    {
+        $article = Article::find($id);
+        $article->like();
+
+        return redirect()->route('article.show', compact('id'))
+            ->with('success', 'Vous aimez cet article !');
+    }
+    public function unlike($id)
+    {
+        $article = Article::find($id);
+        $article->unlike();
+
+        return redirect()->route('article.show', compact('id'))
+            ->with('success', 'Vous n\'aimez plus cet article !');
+    }
 }
+
+

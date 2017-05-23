@@ -18,6 +18,8 @@ Route::get('/', function () {
 Route::get('/hello', function () {
     return view('welcome');
 });
+Route::post('article/{id}/like', ['as' => 'article.like', 'uses' => 'ArticleController@like']);
+Route::post('article/{id}/unlike', ['as' => 'article.unlike', 'uses' => 'ArticleController@unlike']);
 
 Route::get('/user', function () {
     return view('user');

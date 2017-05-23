@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use \Conner\Likeable\LikeableTrait;
 
 class Article extends Model
 {
+    use LikeableTrait;
+
     protected $fillable = [
         'title', 'content', 'images', 'user_id', 'categories_id'];
 

@@ -36,6 +36,19 @@
                                 @endif
                             </div>
                         </form>
+                        Nombre de likes : {{$article->likeCount}}
+                        @if( $article->liked() )
+                            <form method="POST" action="{{ route('article.unlike', $article->id) }}">
+                                {{ csrf_field() }}
+                                <input type="submit" value="Unlike" class="btn btn-danger">
+                            </form>
+                        @else
+                            <form method="POST" action="{{ route('article.like', $article->id) }}">
+                                {{ csrf_field() }}
+                                <input type="submit" value="Like" class="btn btn-success">
+                            </form>
+                        @endif
+
                     <div class="panel-body">
                         @if(Auth::check())
                     <form method="POST" action="{{ route('comment.store') }}">
@@ -47,6 +60,7 @@
                         </div>
                     </form>
                         @endif
+
                     @foreach($comments as $comment)
                         @if($comment->article_id == $article->id)
                             <p>Commentaire Posté par : {{$comment->user->name}} </p>
