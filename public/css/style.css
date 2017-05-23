@@ -10,7 +10,10 @@ p a,a{
     text-decoration: none;
 }
 .post-preview{
-
+}
+.site-heading{
+    width: 50em !important;
+    color: #00E094 !important;
 }
 
 a:hover{
