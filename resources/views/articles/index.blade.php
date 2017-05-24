@@ -12,10 +12,10 @@
     <div class="row">
         <div class="col-md-offset-1 col-md-10 ">
             <div class="post-preview">
+                <h2>Les articles les plus récents</h2>
                 @include('messages.success')
                 @include('messages.error')
                 @foreach($articles as $article)
-                    @if($article->categories_id = 4)
                         <a href="{{ route('article.show', $article->id) }}">
                         <div class="post-title z-depth-4">
                             <img src="{{ $article->images }}">
@@ -25,11 +25,11 @@
                             <p>
                                 {{$article->content}}
                             </p>
+                            <p> Suivi par {{$article->likeCount}} personne(s)</p>
                         <p class="post-meta">Posté par : {{ $article->user->name }} le {{$article->created_at}}</p>
                         </div>
                         </a>
 
-                    @endif
                 @endforeach
                 {{$articles->links()}}
             </div>

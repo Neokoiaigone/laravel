@@ -106,8 +106,9 @@
                                 {{ csrf_field() }}
                             </form></a>
                     </li>
-                    @endif
         </ul>
+        @endif
+
     </div>
     <div class="nav-content">
         <ul class="Cat">

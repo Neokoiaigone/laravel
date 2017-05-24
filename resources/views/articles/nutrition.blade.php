@@ -14,6 +14,7 @@
         <div class="row">
             <div class="col-md-offset-1 col-md-10 ">
                 <div class="post-preview">
+                    <h2>C'est toujours plus agréable de mieux manger à plusieurs</h2>
                     @include('messages.success')
                     @include('messages.error')
                     @foreach($articles as $article)

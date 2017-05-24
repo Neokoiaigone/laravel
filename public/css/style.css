@@ -21,7 +21,8 @@
 .Cat li a{
     font-size: 0.9em!important;
     margin-top: 1vh;
-    padding-bottom: 1vh;
+    padding-bottom: 15px;
+
 }
 .intro-header{
     height:15vh;
@@ -78,7 +79,6 @@ a img{
     font-weight:700;
     border-bottom: 3px solid #00E094;
     color:#00E094;
-    padding-bottom: 10px;
 }
 select{
     display: inline!important;
