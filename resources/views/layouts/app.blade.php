@@ -82,9 +82,31 @@
             @endif
         </ul>
         <ul class="side-nav" id="mobile-demo">
-            <li><a href="sass.html">Sass</a></li>
-            <li><a href="badges.html">Components</a></li>
-            <li><a href="collapsible.html">JavaScript</a></li>
+            @if (Auth::guest())
+
+                <li><a href="{{ route('login') }}">Connexion</a></li>
+                <li><a href="{{ route('register') }}">Inscription</a></li>
+            @else
+                @if (Auth::check() and auth()->user()->isAdmin)
+                    <li><a href="{{ route('admin.index') }}">Administration</a></li>
+                @endif
+                <li><a href="{{ route('article.create') }}">Publier un défi</a></li>
+
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ Auth::user()->name }} <i class="material-icons right">arrow_drop_down</i></a></li>
+                <ul id="dropdown1" class="dropdown-content">
+                    <li><a href="#!">
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                Deconnexion
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                  style="display: none;">
+                                {{ csrf_field() }}
+                            </form></a>
+                    </li>
+                    @endif
         </ul>
     </div>
     <div class="nav-content">
