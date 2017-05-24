@@ -138,9 +138,9 @@
             </div>
             <div class="col-md-6">
                 <h5 class="white-text footer-title"><img src="{{'/img/footer svg go follow.svg'}}" alt="mhb" class="mhb2" width="250"></h5>
-                <a href="#" class="fa fa-instagram"></a>
-                <a href="#" class="fa fa-facebook"></a>
-                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-instagram" style="font-size: 2em;"></a>
+                <a href="#" class="fa fa-facebook" style="font-size: 2em;"></a>
+                <a href="#" class="fa fa-twitter" style="font-size: 2em;"></a>
             </div>
             <div class="col-md-3">
                 <h5 class="white-text footer-title">Catégories</h5>
