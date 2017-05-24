@@ -54,17 +54,17 @@
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             @if (Auth::guest())
 
-                <li><a href="{{ route('login') }}">Connexion</a></li>
-                <li><a href="{{ route('register') }}">Inscription</a></li>
+                <li class="btn3"><a href="{{ route('login') }}">Connexion</a></li>
+                <li class="btn3"><a href="{{ route('register') }}">Inscription</a></li>
             @else
                 @if (Auth::check() and auth()->user()->isAdmin)
-                    <li><a href="{{ route('admin.index') }}">Administration</a></li>
+                    <li class="btn3"><a href="{{ route('admin.index') }}">Administration</a></li>
                 @endif
-                <li><a href="{{ route('article.create') }}">Publier un défi</a></li>
+                <li class="btn3"><a href="{{ route('article.create') }}">Publier un défi</a></li>
 
                 <li><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ Auth::user()->name }} <i class="material-icons right">arrow_drop_down</i></a></li>
                 <ul id="dropdown1" class="dropdown-content">
-                    <li><a href="#!">
+                    <li class="btn3"><a href="#!">
                             <a href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
@@ -113,11 +113,11 @@
     </div>
     <div class="nav-content">
         <ul class="Cat">
-            <li ><a href="{{ route('article.sport') }}" class="tabM">Sport</a></li>
-            <li ><a href="{{ route('article.economie') }}" class="tabM">Économie</a></li>
+            <li><a href="{{ route('article.sport') }}" class="tabM">Sport</a></li>
+            <li><a href="{{ route('article.economie') }}" class="tabM">Économie</a></li>
             <li><a href="{{ route('article.dvlp') }}" class="tabM">Développement personnel</a></li>
-            <li ><a href="{{ route('article.nutrition') }}" class="tabM">Nutrition</a></li>
-            <li ><a href="{{ route('article.jv') }}" class="tabM">Jeux Vidéos</a></li>
+            <li><a href="{{ route('article.nutrition') }}" class="tabM">Nutrition</a></li>
+            <li><a href="{{ route('article.jv') }}" class="tabM">Jeux Vidéos</a></li>
         </ul>
     </div>
 </nav>

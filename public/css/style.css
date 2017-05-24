@@ -12,8 +12,8 @@
     z-index: 999;
 }
 
-.nav-extended a:hover {
-    color:#00E094;
+.nav-extended :hover{
+    color: #00E094;
 }
 .Cat{
     text-transform: uppercase;
@@ -138,3 +138,30 @@ select{
 *{
     font-family: Roboto;
 }
+
+/*animation header*/
+.btn3{
+    position: relative;
+    display: block;
+    transition: all 400ms ease-out;
+    overflow: hidden;
+}
+
+.btn3:hover:before{
+    left: 15px;
+}
+
+.btn3:before{
+    content:"";
+    background: #00E094;
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    top: 40px;
+    left: -150px;
+    right: 0px;
+    text-align: center;
+    display: block;
+    transition: all 400ms ease-out;
+}
+/*animations header*/
