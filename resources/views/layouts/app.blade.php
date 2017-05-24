@@ -130,18 +130,20 @@
     <div class="container">
         <div class="row center">
             <div class="col col-md-3">
-                <h5 class="white-text footer-title">Made in</h5>
-                <p class="grey-text text-lighten-4">Institut du multimedia et de l'internet</p>
+                <h5 class="white-text footer-title">Made by</h5>
+                <p class="grey-text text-lighten-4">Louis-Alexandre Bricq</p>
+                <p class="grey-text text-lighten-4">Adam Benhaddou</p>
+                <p class="grey-text text-lighten-4">Valentin Savigny</p>
+                <p class="grey-text text-lighten-4">Adam Alet</p>
             </div>
             <div class="col-md-6">
-                <h5 class="white-text footer-title">Follow</h5>
-                <hr>
+                <h5 class="white-text footer-title"><img src="{{'/img/follow.png'}}" alt="mhb" class="mhb2" width="250"></h5>
                 <a href="#" class="fa fa-instagram"></a>
                 <a href="#" class="fa fa-facebook"></a>
                 <a href="#" class="fa fa-twitter"></a>
             </div>
             <div class="col-md-3">
-                <h5 class="white-text footer-title">Catégories populaires</h5>
+                <h5 class="white-text footer-title">Catégories</h5>
                 <ul>
                     <li><a class="grey-text text-lighten-3" href="#!">Sport</a></li>
                     <li><a class="grey-text text-lighten-3" href="#!">Economie</a></li>

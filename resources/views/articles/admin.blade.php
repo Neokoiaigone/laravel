@@ -62,7 +62,16 @@
                                 <p class="post-meta">Posté par : {{ $article->user->name }} le {{$article->created_at}}</p>
                             </div>
                         </a>
-
+                        <form method="POST" action="{{ route('article.destroy', $article->id)}}">
+                            {{csrf_field()}}
+                            <div class="panel-heading">
+                                @if(Auth::check() and auth()->user()->isAdmin or Auth::check() and $articles = Auth::user()->id == $article->user->id)
+                                    <a href="{{ route('article.edit', $article->id) }}" class="col-md-5 btn btn-primary">Modifier</a>
+                                    <input type="hidden" name="_method" value="DELETE">
+                                    <input class="btn col-md-5 btn-danger red "type="submit" value="supprimer">
+                                @endif
+                            </div>
+                        </form>
                     @endforeach
                     {{$articles->links()}}
                 </div>
