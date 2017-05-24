@@ -44,7 +44,7 @@
     </script>
 </head>
 <body>
-<nav class="nav-extended z-depth-3">
+<nav class="nav-extended z-depth-3 navbar-fixed-top">
     <div class="nav-wrapper">
         <a class="brand-logo" href="{{ url('/') }}">
             <img src="{{'/img/logosvg2.svg'}}" alt="mhb" class="mhb">
@@ -159,6 +159,18 @@
         integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
         crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+<script type="text/javascript">
+    // fontion pour donné l'attribut 'scrolled' a la navbar lorsqu'elle n'est pas en Top de la page
+    $(function () {
+        $(document).scroll(function () {
+            var $nav = $(".navbar-fixed-top");
+            $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+        });
+    });
+
+
+</script>
 
 <script>
     $( document ).ready(function(){
