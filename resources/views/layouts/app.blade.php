@@ -137,7 +137,7 @@
                 <p class="grey-text text-lighten-4">Adam Alet</p>
             </div>
             <div class="col-md-6">
-                <h5 class="white-text footer-title"><img src="{{'/img/follow.png'}}" alt="mhb" class="mhb2" width="250"></h5>
+                <h5 class="white-text footer-title"><img src="{{'/img/logo footer follow svg.svg'}}" alt="mhb" class="mhb2" width="250"></h5>
                 <a href="#" class="fa fa-instagram"></a>
                 <a href="#" class="fa fa-facebook"></a>
                 <a href="#" class="fa fa-twitter"></a>
