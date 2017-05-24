@@ -123,3 +123,18 @@ select{
     color: #000;
 }
 /*quand la navbar n'est pas collé en haut*/
+
+.footer-title{
+    font-size: 3em;
+    font-family: "Moonlights on the Beach";
+}
+
+
+.fa{
+    color: white;
+    width: 50px;
+}
+
+*{
+    font-family: Roboto;
+}
