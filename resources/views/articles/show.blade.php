@@ -5,9 +5,9 @@
     </header>
 <div class="container">
         <div class="row">
-            <div class="col-md-10 col-md-offset-1">
+            <div class="col-md-12 ">
                 <div class="panel panel-default">
-                    <div class="panel-heading">Article Posté par : {{ $article->user->name }} </div>
+                    <div class="panel-heading">Défi proposé par <b>{{ $article->user->name }}</b>  </div>
                     @include('messages.success')
                     @include('messages.error')
                     <div class="panel-body">
@@ -20,20 +20,26 @@
                                 @if(Auth::check() and auth()->user()->isAdmin or Auth::check() and $articles = Auth::user()->id == $article->user->id)
                                 <a href="{{ route('article.edit', $article->id) }}" class="col-md-5 btn btn-primary">Modifier</a>
                                 <input type="hidden" name="_method" value="DELETE">
-                                <input class="btn col-md-5 btn-danger "type="submit" value="supprimer">
+                                <input class="btn col-md-5 btn-danger red "type="submit" value="supprimer">
                                 @endif
                             </div>
                         </form>
-                        <p class="aere">Nombre de likes : {{$article->likeCount}}
+                        @if( $article->likeCount == 0)
+                            <p class="aere">Soyez le premier à suivre cet article ! </p>
+                        @elseif($article->likeCount == 1)
+                            <p class="aere">Suivi par <b>{{$article->likeCount}}</b> personne </p>
+                        @else
+                            <p class="aere">Suivi par <b>{{$article->likeCount}}</b> personnes </p>
+                        @endif
                         @if( $article->liked() )
                             <form method="POST" action="{{ route('article.unlike', $article->id) }}">
                                 {{ csrf_field() }}
-                                <input type="submit" value="Unlike" class="btn btn-danger">
+                                <input type="submit" value="Ne plus suivre" class="btn btn-sucess red">
                             </form>
                         @else
                             <form method="POST" action="{{ route('article.like', $article->id) }}">
                                 {{ csrf_field() }}
-                                <input type="submit" value="Like" class="btn btn-success">
+                                <input type="submit" value="Suivre" class="btn btn-success">
                             </form>
                         @endif
                         </p>
@@ -52,7 +58,7 @@
 
                     @foreach($comments as $comment)
                         @if($comment->article_id == $article->id)
-                            <p>Commentaire Posté par : {{$comment->user->name}} </p>
+                            <p>Commentaire posté par <b>{{$comment->user->name}}</b> le <b>{{$comment->created_at}}</b> </p>
                             <p>{{ $comment->content }}</p>
                                 @if(Auth::check() and auth()->user()->isAdmin or Auth::check() and $comments = Auth::user()->id == $comment->user->id)
                                 <a href="{{ route('comment.edit', $comment->id) }}" class="btn col-md-5 btn-primary">Modifier</a>

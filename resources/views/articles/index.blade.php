@@ -12,22 +12,25 @@
 <!-- Main Content -->
 <div class="container">
     <div class="row">
-        <div class="col-lg-8 col-md-10 ">
+        <div class="col-md-offset-1 col-md-10 ">
             <div class="post-preview">
                 @include('messages.success')
                 @include('messages.error')
                 @foreach($articles as $article)
                     @if($article->categories_id = 4)
-                        <div class="post-title">
+                        <a href="{{ route('article.show', $article->id) }}">
+                        <div class="post-title z-depth-4">
                             <img src="{{ $article->images }}" style: width="200vw">
                             <h2>
-                                <a href="{{ route('article.show', $article->id) }}">{{$article->title}}</a>
+                                {{$article->title}}
                             </h2>
                             <p>
-                                <a href="{{ route('article.show', $article->id) }}">{{$article->content}}</a>
+                                {{$article->content}}
                             </p>
-                        </div>
                         <p class="post-meta">Posté par : {{ $article->user->name }} le {{$article->created_at}}</p>
+                        </div>
+                        </a>
+
                     @endif
                 @endforeach
                 {{$articles->links()}}
