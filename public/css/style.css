@@ -21,7 +21,7 @@
 .Cat li a{
     font-size: 0.9em!important;
     margin-top: 1vh;
-
+    padding-bottom: 1vh;
 }
 .intro-header{
     height:15vh;
