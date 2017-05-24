@@ -146,6 +146,32 @@ class ArticleController extends Controller
         return redirect()->route('article.show', compact('id'))
             ->with('success', 'Vous n\'aimez plus cet article !');
     }
+
+    public function sport()
+    {
+        $articles = Article::orderBy('id', 'DESC')->paginate(5);
+        return view('articles.sport', compact('articles'));
+    }
+    public function economie()
+    {
+        $articles = Article::orderBy('id', 'DESC')->paginate(5);
+        return view('articles.economie', compact('articles'));
+    }
+    public function dvlp()
+    {
+        $articles = Article::orderBy('id', 'DESC')->paginate(5);
+        return view('articles.dvlp', compact('articles'));
+    }
+    public function nutrition()
+    {
+        $articles = Article::orderBy('id', 'DESC')->paginate(5);
+        return view('articles.nutrition', compact('articles'));
+    }
+    public function jv()
+    {
+        $articles = Article::orderBy('id', 'DESC')->paginate(5);
+        return view('articles.jv', compact('articles'));
+    }
 }
 
 

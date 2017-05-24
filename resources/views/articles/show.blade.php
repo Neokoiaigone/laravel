@@ -1,16 +1,7 @@
 @extends('.layouts.app')
 @section('content')
 
-    <header class="intro-header" style="background-image: url('/img/home-bg.jpg')">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 col-md-12 col-md-offset-1">
-                    <div class="site-heading">
-                        <h1>{{ $article->title }}</h1>
-
-                </div>
-            </div>
-        </div>
+    <header class="intro-header">
     </header>
 <div class="container">
         <div class="row">

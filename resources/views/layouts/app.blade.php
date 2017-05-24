@@ -61,17 +61,23 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 @if (Auth::guest())
-                    <li><a href="{{ route('article.index') }}">Article</a></li>
-                    <li><a href="{{ route('form.index') }}">Contact</a></li>
-                    <li><a href="{{ route('login') }}">Login</a></li>
-                    <li><a href="{{ route('register') }}">Register</a></li>
+                    <li><a href="{{ route('article.sport') }}">Sport</a></li>
+                    <li><a href="{{ route('article.economie') }}">Économie</a></li>
+                    <li><a href="{{ route('article.devlp') }}">Développement personel</a></li>
+                    <li><a href="{{ route('article.nutrition') }}">Nutrition</a></li>
+                    <li><a href="{{ route('article.jv') }}">Jeux Vidéos</a></li>
+                    <li><a href="{{ route('login') }}">Connexion</a></li>
+                    <li><a href="{{ route('register') }}">Inscription</a></li>
                 @else
                     @if (Auth::check() and auth()->user()->isAdmin)
                         <li><a href="{{ route('admin.index') }}">Administration</a></li>
                     @endif
-                    <li><a href="{{ route('article.create') }}">Publication</a></li>
-                    <li><a href="{{ route('article.index') }}">Article</a></li>
-                    <li><a href="{{ route('form.index') }}">Contact</a></li>
+                    <li><a href="{{ route('article.sport') }}">Sport</a></li>
+                    <li><a href="{{ route('article.economie') }}">Économie</a></li>
+                    <li><a href="{{ route('article.dvlp') }}">Développement personel</a></li>
+                    <li><a href="{{ route('article.nutrition') }}">Nutrition</a></li>
+                    <li><a href="{{ route('article.jv') }}">Jeux Vidéos</a></li>
+                    <li><a href="{{ route('article.create') }}">Publier un défi</a></li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                             {{ Auth::user()->name }} <span class="caret"></span>
@@ -82,7 +88,7 @@
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">
-                                    Logout
+                                    Deconnexion
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"

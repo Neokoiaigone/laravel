@@ -2,6 +2,11 @@
     margin-left: 10%;
 }
 
+.intro-header{
+    background-color: #111;
+    height:10vh;
+}
+
 .post-title img{
     float: left;
     margin-right:10px;
@@ -22,6 +27,10 @@ a:hover{
 nav{
     box-shadow: none;
 }
+.navbar-header a, {
+    height:100%;
+}
+
 .page-footer{
     background-color: #00E094;
 }
@@ -34,8 +43,7 @@ select{
     font-size: 1.5em;
 }
 .mhb {
-    width:20vh;
-    height:20vh;
+    width: 15vh;
 }
 .aere{
     padding-top: 10vh;
