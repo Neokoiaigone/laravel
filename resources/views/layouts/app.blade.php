@@ -13,6 +13,8 @@
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
 
@@ -23,7 +25,6 @@
 
 
     <!-- Custom Fonts -->
-    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet'
           type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800'
@@ -43,68 +44,61 @@
     </script>
 </head>
 <body>
-<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
-    <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header page-scroll">
-            <button type="button" class="navbar-toggle" data-toggle="collapse"
-                    data-target="#bs-example-navbar-collapse-1">
-                <span class="sr-only">Toggle navigation</span>
-                Menu <i class="fa fa-bars"></i>
-            </button>
-            <a class="navbar-brand" href="{{ url('/') }}">
-                <img src="{{'/img/logosvg2.svg'}}" alt="mhb" class="mhb">
-            </a>
-        </div>
+<nav class="nav-extended z-depth-3">
+    <div class="nav-wrapper">
+        <a class="brand-logo" href="{{ url('/') }}">
+            <img src="{{'/img/logosvg2.svg'}}" alt="mhb" class="mhb">
+        </a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            @if (Auth::guest())
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav navbar-right">
-                @if (Auth::guest())
-                    <li><a href="{{ route('article.sport') }}">Sport</a></li>
-                    <li><a href="{{ route('article.economie') }}">Économie</a></li>
-                    <li><a href="{{ route('article.devlp') }}">Développement personel</a></li>
-                    <li><a href="{{ route('article.nutrition') }}">Nutrition</a></li>
-                    <li><a href="{{ route('article.jv') }}">Jeux Vidéos</a></li>
-                    <li><a href="{{ route('login') }}">Connexion</a></li>
-                    <li><a href="{{ route('register') }}">Inscription</a></li>
-                @else
-                    @if (Auth::check() and auth()->user()->isAdmin)
-                        <li><a href="{{ route('admin.index') }}">Administration</a></li>
-                    @endif
-                    <li><a href="{{ route('article.sport') }}">Sport</a></li>
-                    <li><a href="{{ route('article.economie') }}">Économie</a></li>
-                    <li><a href="{{ route('article.dvlp') }}">Développement personel</a></li>
-                    <li><a href="{{ route('article.nutrition') }}">Nutrition</a></li>
-                    <li><a href="{{ route('article.jv') }}">Jeux Vidéos</a></li>
-                    <li><a href="{{ route('article.create') }}">Publier un défi</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                            {{ Auth::user()->name }} <span class="caret"></span>
-                        </a>
-
-                        <ul class="dropdown-menu" role="menu">
-                            <li>
-                                <a href="{{ route('logout') }}"
-                                   onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                    Deconnexion
-                                </a>
-
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                      style="display: none;">
-                                    {{ csrf_field() }}
-                                </form>
-                            </li>
-                        </ul>
-                    </li>
+                <li><a href="{{ route('login') }}">Connexion</a></li>
+                <li><a href="{{ route('register') }}">Inscription</a></li>
+            @else
+                @if (Auth::check() and auth()->user()->isAdmin)
+                    <li><a href="{{ route('admin.index') }}">Administration</a></li>
                 @endif
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
+                <li><a href="{{ route('article.create') }}">Publier un défi</a></li>
+
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ Auth::user()->name }} <i class="material-icons right">arrow_drop_down</i></a></li>
+                <ul id="dropdown1" class="dropdown-content">
+                    <li><a href="#!">
+                            <a href="{{ route('logout') }}"
+                               onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                Deconnexion
+                            </a>
+
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                  style="display: none;">
+                                {{ csrf_field() }}
+                            </form></a>
+                    </li>
+
+                </ul>
+
+
+            @endif
+        </ul>
+        <ul class="side-nav" id="mobile-demo">
+            <li><a href="sass.html">Sass</a></li>
+            <li><a href="badges.html">Components</a></li>
+            <li><a href="collapsible.html">JavaScript</a></li>
+        </ul>
     </div>
-    <!-- /.container -->
+    <div class="nav-content">
+        <ul class="Cat">
+            <li ><a href="{{ route('article.sport') }}" class="tabM">Sport</a></li>
+            <li ><a href="{{ route('article.economie') }}" class="tabM">Économie</a></li>
+            <li><a href="{{ route('article.dvlp') }}" class="tabM">Développement personnel</a></li>
+            <li ><a href="{{ route('article.nutrition') }}" class="tabM">Nutrition</a></li>
+            <li ><a href="{{ route('article.jv') }}" class="tabM">Jeux Vidéos</a></li>
+        </ul>
+    </div>
 </nav>
+
+
 <main>
     @yield('content')
 </main>
@@ -137,20 +131,56 @@
     </div>
 </footer>
 <!-- Scripts -->
-<script src="/js/app.js"></script>
-<script src="vendor/jquery/jquery.min.js"></script>
-
-<!-- Bootstrap Core JavaScript -->
-<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-<!-- Contact Form JavaScript -->
-<script src="js/jqBootstrapValidation.js"></script>
-<script src="js/contact_me.js"></script>
-
-<!-- Theme JavaScript -->
-<script src="js/clean-blog.min.js"></script>
-<!-- Compiled and minified JavaScript -->
+<script
+        src="https://code.jquery.com/jquery-3.2.1.js"
+        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
+        crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+<script>
+    $( document ).ready(function(){
+        $(".button-collapse").sideNav();
+        $(".dropdown-button").dropdown();
+
+        function checkImg(img) {
+            if (img.naturalHeight <= 1 && img.naturalWidth <= 1) {
+                // undersize image here
+                img.src = "http://www.novelupdates.com/img/noimagefound.jpg";
+            }
+        }
+
+        $("img").each(function() {
+            // if image already loaded, we can check it's height now
+            if (this.complete) {
+                checkImg(this);
+            } else {
+                // if not loaded yet, then set load and error handlers
+                $(this).load(function() {
+                    checkImg(this);
+                }).error(function() {
+                    // img did not load correctly
+                    // set new .src here
+                    this.src = "http://www.novelupdates.com/img/noimagefound.jpg";
+                });
+
+            }
+        });
+
+        $(function() {
+            var pgurl = window.location.href;
+            console.log(pgurl);
+            $(".tabM").each(function(){
+                if($(this).attr("href") == pgurl || $(this).attr("href") == '' )
+                    $(this).addClass("active");
+            })
+        });
+
+    });
+
+</script>
+
+
+
 
 </body>
 </html>
