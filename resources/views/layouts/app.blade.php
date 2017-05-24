@@ -48,7 +48,7 @@
 <nav class="nav-extended z-depth-3 navbar-fixed-top">
     <div class="nav-wrapper">
         <a class="brand-logo" href="{{ url('/') }}">
-            <img src="{{'/img/logosvg2.svg'}}" alt="mhb" class="mhb">
+            <img src="{{'/img/logosvg2.svg'}}" alt="mhb" class="mhb" style="padding-top: 10%">
         </a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -137,7 +137,7 @@
                 <p class="grey-text text-lighten-4">Adam Alet</p>
             </div>
             <div class="col-md-6">
-                <h5 class="white-text footer-title"><img src="{{'/img/footer svg go follow.svg'}}" alt="mhb" class="mhb2" width="100%"></h5>
+                <h5 class="white-text footer-title"><img src="{{'/img/footer svg go follow.svg'}}" alt="mhb" class="mhb2" width="100% g"></h5>
                 <a href="#" class="fa fa-instagram" style="font-size: 2em;"></a>
                 <a href="#" class="fa fa-facebook" style="font-size: 2em;"></a>
                 <a href="#" class="fa fa-twitter" style="font-size: 2em;"></a>
