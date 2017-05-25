@@ -163,10 +163,11 @@
             <div class="col-md-3 center-align">
                 <h5 class="white-text footer-title">Catégories</h5>
                 <ul>
-                    <li><a class="grey-text text-lighten-3" href="#!">Sport</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Economie</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Développement personnel</a></li>
-                    <li><a class="grey-text text-lighten-3" href="#!">Jeux-vidéos</a></li>
+                    <li><a class="grey-text text-lighten-3" href="{{ route('article.sport') }}">Sport</a></li>
+                    <li><a class="grey-text text-lighten-3" href="{{ route('article.economie') }}">Economie</a></li>
+                    <li><a class="grey-text text-lighten-3" href="{{ route('article.dvlp') }}">Développement personnel</a></li>
+                    <li><a class="grey-text text-lighten-3" href="{{ route('article.nutrition') }}">Nutrition</a></li>
+                    <li><a class="grey-text text-lighten-3" href="{{ route('article.jv') }}">Jeux vidéos</a></li>
                 </ul>
             </div>
             <br>

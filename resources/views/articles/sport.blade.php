@@ -24,9 +24,7 @@
                                     <h2>
                                         {{$article->title}}
                                     </h2>
-                                    <p>
-                                        {{$article->content}}
-                                    </p>
+
                                     <p class="post-meta">Posté par : {{ $article->user->name }} le {{$article->created_at}}</p>
                                 </div>
                             </a>
