@@ -21,6 +21,8 @@ class Article extends Model
     public function categories(){
         return $this->belongsTo('App\Categories');
     }
-
+    public static function scopeArticleLikes() {
+        return join('likeable_like_counters.likeable_id', 'articles.id', '=', 'likeable_like_counters.id');
+    }
 
 }
