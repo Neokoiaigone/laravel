@@ -8,13 +8,13 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'myHobee') }}</title>
 
     <!-- Styles -->
     <link href="/css/app.css" rel="stylesheet">
     <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
 
@@ -45,15 +45,43 @@
     </script>
 </head>
 <body>
+<ul id="dropdown1" class="dropdown-content">
+    <li>
+        <a href="{{ route('logout') }}"
+           onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+            Deconnexion
+        </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+              style="display: none;">
+            {{ csrf_field() }}
+        </form>
+    </li>
+</ul>
+<ul id="dropdown2" class="dropdown-content">
+    <li>
+        <a href="{{ route('logout') }}"
+           onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+            Deconnexion
+        </a>
+
+        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+              style="display: none;">
+            {{ csrf_field() }}
+        </form>
+    </li>
+</ul>
+
 <nav class="nav-extended z-depth-3 navbar-fixed-top">
     <div class="nav-wrapper">
         <a class="brand-logo" href="{{ url('/') }}">
-            <img src="{{'/img/logosvg2.svg'}}" alt="mhb" class="mhb" style="padding-top: 10%">
+            <img src="{{'/img/logosvg2.svg'}}" alt="mhb" class="mhb">
         </a>
         <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="right hide-on-med-and-down">
             @if (Auth::guest())
-
                 <li class="btn3"><a href="{{ route('login') }}">Connexion</a></li>
                 <li class="btn3"><a href="{{ route('register') }}">Inscription</a></li>
             @else
@@ -61,23 +89,12 @@
                     <li class="btn3"><a href="{{ route('admin.index') }}">Administration</a></li>
                 @endif
                 <li class="btn3"><a href="{{ route('article.create') }}">Publier un défi</a></li>
+                <li><a class="btn3" href="{{ route('article.follow') }}">Voir vos abonnements</a></li>
 
-                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ Auth::user()->name }} <i class="material-icons right">arrow_drop_down</i></a></li>
-                <ul id="dropdown1" class="dropdown-content">
-                    <li class="btn3"><a href="#!">
-                            <a href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                Deconnexion
-                            </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                  style="display: none;">
-                                {{ csrf_field() }}
-                            </form></a>
-                    </li>
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown2">{{ Auth::user()->name }} <i
+                                class="material-icons right">arrow_drop_down</i></a></li>
 
-                </ul>
 
 
             @endif
@@ -92,27 +109,25 @@
                     <li><a href="{{ route('admin.index') }}">Administration</a></li>
                 @endif
                 <li><a href="{{ route('article.create') }}">Publier un défi</a></li>
+                <li><a href="{{ route('article.follow') }}">Voir vos abonnements</a></li>
 
-                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ Auth::user()->name }} <i class="material-icons right">arrow_drop_down</i></a></li>
-                <ul id="dropdown1" class="dropdown-content">
-                    <li><a href="#!">
-                            <a href="{{ route('logout') }}"
-                               onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                Deconnexion
-                            </a>
+                <hr>
+                <li><a href="{{ route('article.index') }}">Accueil</a></li>
+                <li><a href="{{ route('article.sport') }}" class="tabM">Sport</a></li>
+                <li><a href="{{ route('article.economie') }}" class="tabM">Économie</a></li>
+                <li><a href="{{ route('article.dvlp') }}" class="tabM">Développement personnel</a></li>
+                <li><a href="{{ route('article.nutrition') }}" class="tabM">Nutrition</a></li>
+                <li><a href="{{ route('article.jv') }}" class="tabM">Jeux Vidéos</a></li>
+                <hr>
+                <li><a class="dropdown-button" href="#!" data-activates="dropdown1">{{ Auth::user()->name }} <i
+                                class="material-icons right">arrow_drop_down</i></a></li>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST"
-                                  style="display: none;">
-                                {{ csrf_field() }}
-                            </form></a>
-                    </li>
-        </ul>
         @endif
 
     </div>
-    <div class="nav-content">
+    <div class="nav-content hide-on-med-and-down">
         <ul class="Cat">
+            <li><a href="{{ route('article.index') }}">Accueil</a></li>
             <li><a href="{{ route('article.sport') }}" class="tabM">Sport</a></li>
             <li><a href="{{ route('article.economie') }}" class="tabM">Économie</a></li>
             <li><a href="{{ route('article.dvlp') }}" class="tabM">Développement personnel</a></li>
@@ -129,20 +144,23 @@
 <footer class="page-footer">
     <div class="container">
         <div class="row center">
-            <div class="col col-md-3">
+            <div class="col-md-3 center-align">
                 <h5 class="white-text footer-title">Made by</h5>
                 <p class="grey-text text-lighten-4">Louis-Alexandre Bricq</p>
                 <p class="grey-text text-lighten-4">Adam Benhaddou</p>
                 <p class="grey-text text-lighten-4">Valentin Savigny</p>
                 <p class="grey-text text-lighten-4">Adam Alet</p>
             </div>
-            <div class="col-md-6">
-                <h5 class="white-text footer-title"><img src="{{'/img/footer svg go follow.svg'}}" alt="mhb" class="mhb2" width="100% g"></h5>
-                <a href="#" class="fa fa-instagram" style="font-size: 2em;"></a>
-                <a href="#" class="fa fa-facebook" style="font-size: 2em;"></a>
-                <a href="#" class="fa fa-twitter" style="font-size: 2em;"></a>
+            <br>
+            <div class="col-md-6 center-align">
+                <h5 class="white-text footer-title"><img src="{{'/img/footer svg go follow.svg'}}" alt="mhb"
+                                                         class="mhb2" width="100% g"></h5>
+                <a href="#" class="fa whitefa fa-instagram" style="font-size: 2em;"></a>
+                <a href="#" class="fa whitefa fa-facebook" style="font-size: 2em;"></a>
+                <a href="#" class="fa whitefa fa-twitter" style="font-size: 2em;"></a>
             </div>
-            <div class="col-md-3">
+            <br>
+            <div class="col-md-3 center-align">
                 <h5 class="white-text footer-title">Catégories</h5>
                 <ul>
                     <li><a class="grey-text text-lighten-3" href="#!">Sport</a></li>
@@ -151,6 +169,7 @@
                     <li><a class="grey-text text-lighten-3" href="#!">Jeux-vidéos</a></li>
                 </ul>
             </div>
+            <br>
         </div>
     </div>
     <div class="footer-copyright">
@@ -162,8 +181,7 @@
 <!-- Scripts -->
 <script
         src="https://code.jquery.com/jquery-3.2.1.js"
-        integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-        crossorigin="anonymous"></script>
+></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
 
 <script type="text/javascript">
@@ -179,7 +197,7 @@
 </script>
 
 <script>
-    $( document ).ready(function(){
+    $(document).ready(function () {
         $(".button-collapse").sideNav();
         $(".dropdown-button").dropdown();
 
@@ -190,15 +208,15 @@
             }
         }
 
-        $("img").each(function() {
+        $("img").each(function () {
             // if image already loaded, we can check it's height now
             if (this.complete) {
                 checkImg(this);
             } else {
                 // if not loaded yet, then set load and error handlers
-                $(this).load(function() {
+                $(this).load(function () {
                     checkImg(this);
-                }).error(function() {
+                }).error(function () {
                     // img did not load correctly
                     // set new .src here
                     this.src = "http://www.novelupdates.com/img/noimagefound.jpg";
@@ -207,11 +225,11 @@
             }
         });
 
-        $(function() {
+        $(function () {
             var pgurl = window.location.href;
             console.log(pgurl);
-            $(".tabM").each(function(){
-                if($(this).attr("href") == pgurl || $(this).attr("href") == '' )
+            $(".tabM").each(function () {
+                if ($(this).attr("href") == pgurl || $(this).attr("href") == '')
                     $(this).addClass("active");
             })
         });
@@ -219,8 +237,6 @@
     });
 
 </script>
-
-
 
 
 </body>

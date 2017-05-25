@@ -23,8 +23,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::paginate(10);
-
+        $articles = Article::orderBy('id', 'DESC')->paginate(5);
         return view('articles.index', compact('articles'));
     }
 
@@ -172,6 +171,11 @@ class ArticleController extends Controller
     {
         $articles = Article::orderBy('id', 'DESC')->paginate(5);
         return view('articles.jv', compact('articles'));
+    }
+    public function follow()
+    {
+        $articles = Article::orderBy('id', 'DESC')->paginate(5);
+        return view('articles.follow', compact('articles'));
     }
 }
 

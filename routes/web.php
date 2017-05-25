@@ -22,6 +22,7 @@ Route::get('/economie', ['as' => 'article.economie', 'uses' => 'ArticleControlle
 Route::get('/developpement-personel', ['as' => 'article.dvlp', 'uses' => 'ArticleController@dvlp']);
 Route::get('/nutrition', ['as' => 'article.nutrition', 'uses' => 'ArticleController@nutrition']);
 Route::get('/jeux-videos', ['as' => 'article.jv', 'uses' => 'ArticleController@jv']);
+Route::get('/follows', ['as' => 'article.follow', 'uses' => 'ArticleController@follow']);
 
 Route::get('/user', function () {
     return view('user');

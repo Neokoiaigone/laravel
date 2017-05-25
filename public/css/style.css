@@ -25,11 +25,17 @@
 
 }
 .intro-header{
-    height:15vh;
+    height:9vh;
 }
+
 .post-title img{
-    height: 100%;
+    max-height: 100%;
     max-width: 30%;
+    float: left;
+    margin-right:10px;
+}
+#dropdown1{
+    z-index: 1000;
 }
 
 .post-title{
@@ -37,12 +43,10 @@
     padding:5px;
     height:200px;
     margin-bottom:30px;
+    overflow: hidden;
 }
 
-.post-title img{
-    float: left;
-    margin-right:10px;
-}
+
 a{
     text-decoration: none;
 }
@@ -53,9 +57,12 @@ p{
     font-size:1rem;
 }
 .post-preview{
+    overflow: hidden;
+
 }
 .site-heading{
     width: 50em !important;
+    overflow: hidden;
 }
 
 a:hover{
@@ -71,7 +78,35 @@ a img{
 .navbar-header a{
     height:100%;
 }
+.panel-body{
+    overflow: hidden;
 
+}
+
+.large{
+    width:100%;
+    height:20vw;
+    transition: 0.4s;
+    display: -webkit-flex!important;
+    display: -ms-flexbox;
+    display: flex!important;
+    -webkit-align-items: center!important;
+    -ms-flex-align: center;
+    align-items: center!important;
+    background-color: #49ffc1;
+}
+
+.large > h1{
+    margin: auto;
+    color: white;
+    font-size: 1.8em;
+    font-weight: inherit;
+}
+.page {
+    text-align: center;
+    font-weight: 600;
+    color: #222d5f;
+}
 .page-footer{
     background-color: #49ffc1;
 }
@@ -90,9 +125,7 @@ select{
 .mhb {
     width: 150px;
     cursor: pointer!important;
-    margin-top: 5px;
-    padding: 0 15px;
-}
+    margin-top: 10px;}
 .aere{
     padding-top: 10vh;
     padding-bottom: 5vh;
@@ -131,8 +164,11 @@ select{
 
 
 .fa{
+    color: black;
+    padding:5px;}
+
+.whitefa{
     color: white;
-    width: 50px;
 }
 
 *{
@@ -165,3 +201,24 @@ select{
     transition: all 400ms ease-out;
 }
 /*animations header*/
+
+.container{
+    width:85%;
+}
+img{
+    max-width: 100%;
+}
+
+.panel{
+    margin-top: 30px;
+    border-radius: 0;
+
+}
+@media all and (max-width: 992px) {
+    .intro-header{
+        height:5px;
+    }
+    .large h1{
+        font-size: 1.3em;
+    }
+}

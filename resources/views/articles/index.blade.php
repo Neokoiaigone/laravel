@@ -7,12 +7,15 @@
 <!-- Set your background image for this header on the line below. -->
 <header class="intro-header" ></header>
 
+<div class="large ">
+    <h1 class="page container">MyHobee, le site de défis à toutes les sauces ! Seul, ou entre amis !</h1>
+</div>
 <!-- Main Content -->
 <div class="container">
     <div class="row">
         <div class="col-md-offset-1 col-md-10 ">
             <div class="post-preview">
-                <h2>Les articles les plus récents</h2>
+                <h2>Les derniers défis</h2>
                 @include('messages.success')
                 @include('messages.error')
                 @foreach($articles as $article)
