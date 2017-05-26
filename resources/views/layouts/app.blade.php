@@ -45,6 +45,7 @@
     </script>
 </head>
 <body>
+@if(Auth::check())
 <ul id="dropdown1" class="dropdown-content">
     <li> <a href="{{ route('user.show' , Auth::user()->id) }}">
             Profil
@@ -62,6 +63,7 @@
         </form>
     </li>
 </ul>
+
 <ul id="dropdown2" class="dropdown-content">
     <li> <a href="{{ route('user.show' , Auth::user()->id) }}">
             Profil
@@ -79,7 +81,7 @@
         </form>
     </li>
 </ul>
-
+@endif
 <nav class="nav-extended z-depth-3 navbar-fixed-top">
     <div class="nav-wrapper">
         <a class="brand-logo" href="{{ url('/') }}">
