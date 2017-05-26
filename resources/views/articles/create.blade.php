@@ -11,7 +11,7 @@
                     <div class="panel-heading">Publier un défi</div>
                         @include('messages.error')
                     <div class="panel-body">
-                        <form method="POST" action="{{ route('article.store') }}">
+                        <form method="POST" action="{{ route('article.store') }}" enctype="multipart/form-data" >
                             {{csrf_field()}}
                             <input class="form-control" type="text" name="title" placeholder="Défi">
                             Catégorie de votre défi :
@@ -24,9 +24,9 @@
                             </select>
                             <br><br>
                             <textarea class="form-control" name="content" placeholder="Expliquez en quoi consiste votre défi !"></textarea><br>
-                            <p>Les défis avec images sont plus regardés que sans images. Nous vous conseillons d'uploader votre image sur
-                                <a href="http://www.imgur.com">imgur</a> !</p>
-                            <textarea class="form-control" name="images" placeholder="URL d'une image pour illustrer votre défi ?"></textarea>
+
+                            <input type="file" name="image" id="fileToUpload">
+
                             <br><br>
                             <input type="submit" value="publier" class="btn btn-info">
                         </form>

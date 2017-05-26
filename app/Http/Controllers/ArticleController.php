@@ -9,6 +9,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use \Conner\Likeable\Likeable;
 
+// import the Intervention Image Manager Class
+use Illuminate\Support\Facades\Input;
+use Intervention\Image\ImageManagerStatic as Image;
 
 class ArticleController extends Controller
 {
@@ -44,25 +47,34 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
+        $article = new Article;
+
         $this->validate($request,
             [
                 'title' => 'required|min:3',
                 'content' => 'required|min:10',
+                'image' => 'required'
             ],
             [
                 'title.required' => 'Le titre est requis',
-                'content.required' => 'Le contenu est requis'
+                'content.required' => 'Le contenu est requis',
+                'image' => 'required'
             ]);
 
         $input = $request->input();
 
         $input['user_id'] = Auth::user()->id;
         $input['categories_id'] = $request->categories;
-        $article = new Article;
+       if( $request->hasFile('image')){
+           $image = $request->file('image');
+           $image->move(public_path('uploads'), $image->getClientOriginalName());
+           $article->image = $image->getClientOriginalName();
+
+       }
         $article->fill($input)->save();
 
         return redirect()->route('article.index', compact('id'))
-            ->with('success', 'L\'article a bien été publié !');
+            ->with('success', 'Votre défi va être exposé au monde entier !');
     }
 
     /**

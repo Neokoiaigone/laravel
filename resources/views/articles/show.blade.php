@@ -12,7 +12,7 @@
                     @include('messages.error')
                     <div class="panel-body">
                         <div class="col l6 m6 s12">
-                            <img src="{{ $article->images }} ">
+                            <img src="{!! '/uploads/'.$article->image !!} ">
                         </div>
                         <div class="col l6 m6 s12">
                             <hr>
