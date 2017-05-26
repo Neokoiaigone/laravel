@@ -222,3 +222,14 @@ img{
         font-size: 1.3em;
     }
 }
+.boxprofil{
+    text-align: center;
+    padding: 5%;
+}
+.boxprofil h5{
+    text-align: left;
+    font-size: 0.5em;
+}
+.boxprofil h3{
+    font-size: 1em;
+}
