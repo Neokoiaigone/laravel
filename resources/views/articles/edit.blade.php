@@ -16,7 +16,7 @@
                             {{csrf_field()}}
                             <input class="form-control" type="text" value="{{$article->title}}" name="title" placeholder="Titre">
                             <textarea class="form-control" name="content" placeholder="Contenu">{{$article->content}}</textarea>
-                            <input type="file" name="image" id="fileToUpload">
+                            <input type="file" name="image" id="fileToUpload" value="{{$article->image}}">
                             <input type="submit" value="publier" class="btn btn-info">
                         </form>
                     </div>
