@@ -22,7 +22,7 @@
                         @if($article->liked())
                             <a href="{{ route('article.show', $article->id) }}">
                                 <div class="post-title z-depth-4">
-                                    <img src="{{ $article->images }}">
+                                    <img src="{!! '/uploads/'.$article->image !!}">
                                     <h2>
                                         {{$article->title}}
                                     </h2>
