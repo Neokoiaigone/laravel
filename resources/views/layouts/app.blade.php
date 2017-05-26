@@ -46,6 +46,9 @@
 </head>
 <body>
 <ul id="dropdown1" class="dropdown-content">
+    <li> <a href="{{ route('user.show' , Auth::user()->id) }}">
+            Profil
+        </a></li>
     <li>
         <a href="{{ route('logout') }}"
            onclick="event.preventDefault();
@@ -60,6 +63,9 @@
     </li>
 </ul>
 <ul id="dropdown2" class="dropdown-content">
+    <li> <a href="{{ route('user.show' , Auth::user()->id) }}">
+            Profil
+        </a></li>
     <li>
         <a href="{{ route('logout') }}"
            onclick="event.preventDefault();
@@ -84,12 +90,16 @@
             @if (Auth::guest())
                 <li class="btn3"><a href="{{ route('login') }}">Connexion</a></li>
                 <li class="btn3"><a href="{{ route('register') }}">Inscription</a></li>
+
             @else
                 @if (Auth::check() and auth()->user()->isAdmin)
                     <li class="btn3"><a href="{{ route('admin.index') }}">Administration</a></li>
                 @endif
                 <li class="btn3"><a href="{{ route('article.create') }}">Publier un défi</a></li>
                 <li><a class="btn3" href="{{ route('article.follow') }}">Voir vos abonnements</a></li>
+                    <li> <a href="{{ route('user.index') }}">
+                            Communauté
+                        </a></li>
 
 
                 <li><a class="dropdown-button" href="#!" data-activates="dropdown2">{{ Auth::user()->name }} <i
@@ -110,7 +120,9 @@
                 @endif
                 <li><a href="{{ route('article.create') }}">Publier un défi</a></li>
                 <li><a href="{{ route('article.follow') }}">Voir vos abonnements</a></li>
-
+                    <li> <a href="{{ route('user.index') }}">
+                            Communauté
+                        </a></li>
                 <hr>
                 <li><a href="{{ route('article.index') }}">Accueil</a></li>
                 <li><a href="{{ route('article.sport') }}" class="tabM">Sport</a></li>

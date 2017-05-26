@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
+use App\Article;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -13,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::orderBy('id', 'DESC')->paginate(20);
+        return view('users.index', compact('users'));
     }
 
     /**
@@ -45,7 +48,11 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        $article = Article::all();
+
+
+        return view('users.show', compact('user', 'article'));
     }
 
     /**
@@ -56,7 +63,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('user.edit', compact('user'));
     }
 
     /**

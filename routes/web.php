@@ -28,10 +28,6 @@ Route::get('/user', function () {
     return view('user');
 });
 
-Route::get('resizeImage', 'ImageController@resizeImage');
-Route::post('resizeImagePost',['as'=>'resizeImagePost','uses'=>'ImageController@resizeImagePost']);
-
-
 
 Auth::routes();
 
@@ -40,5 +36,5 @@ Route::resource('/article', 'ArticleController');
 Route::resource('/form', 'FormController');
 Route::resource('/comment', 'CommentController');
 Route::resource('/admin', 'AdminArticleController');
-Route::resource('/user', 'UserArticleController');
+Route::resource('/user', 'UserController');
 

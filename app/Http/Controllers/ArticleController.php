@@ -9,15 +9,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use \Conner\Likeable\Likeable;
 
-// import the Intervention Image Manager Class
-use Illuminate\Support\Facades\Input;
-use Intervention\Image\ImageManagerStatic as Image;
+
 
 class ArticleController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth')->except('index', 'show');
+        $this->middleware('auth')->except('index', 'show', 'jv', 'nutrition', 'economie', 'dvlp', 'sport');
     }
     /**
      * Display a listing of the resource.
@@ -116,16 +114,26 @@ class ArticleController extends Controller
         $this->validate($request, [
             'title' => 'required|min:3',
             'content' => 'required|min:10',
+            'image' => 'required'
         ],
             [
                 'title.required' => 'Le titre est requis',
-                'content.required' => 'Le contenu est requis'
+                'content.required' => 'Le contenu est requis',
+                'image' => 'required'
             ]);
         $article = Article::find($id);
         $input = $request->input();
+        if( $request->hasFile('image')){
+            $image = $request->file('image');
+            $image->move(public_path('uploads'), $image->getClientOriginalName());
+            $article->image = $image->getClientOriginalName();
+            echo $article;
+            die;
+
+        }
         $article->fill($input)->save();
         return redirect()->route('article.show', compact('id'))
-            ->with('success', 'L\'article a bien été modifié !');
+            ->with('success', 'Le défi a bien été modifié !');
     }
 
     /**
