@@ -184,7 +184,7 @@ select{
 }
 
 .btn3:hover:before{
-    left: 100%;
+    left: 20%;
 }
 
 .btn3:before{
