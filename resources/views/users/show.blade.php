@@ -5,7 +5,7 @@
     <!-- Navigation -->
     <!-- Page Header -->
     <!-- Set your background image for this header on the line below. -->
-    <header class="intro-header" ></header>
+    <header class="intro-header"></header>
 
     <!-- Main Content -->
     <div class="container">
@@ -27,7 +27,9 @@
                             <h2 class="content-heading">Vos défis partagés</h2>
                             <ul>
                                 @forelse(Auth::user()->articles as $article)
-                                    <li class="article"><a  href="{{ route('article.show', $article->id) }}">{{ $article->title }}</a></li>
+                                    <li class="article"><a
+                                                href="{{ route('article.show', $article->id) }}">{{ $article->title }}</a>
+                                    </li>
                                 @empty
                                     Vous n'avez pas encore partagé de défi.
                                 @endforelse
@@ -46,7 +48,9 @@
                             <h2 class="content-heading">Ses défis partagés</h2>
                             <ul>
                                 @forelse($user->articles as $article)
-                                    <li class="article"><a  href="{{ route('article.show', $article->id) }}">{{ $article->title }}</a></li>
+                                    <li class="article"><a
+                                                href="{{ route('article.show', $article->id) }}">{{ $article->title }}</a>
+                                    </li>
                                 @empty
                                     L'utilisateur a partagé aucun défi.
                                 @endforelse
