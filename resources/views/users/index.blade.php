@@ -17,7 +17,7 @@
                     @include('messages.error')
                     @foreach($users as $user)
                         <a href="{{ route('user.show', $user->id) }}">
-                            <div class="post-title z-depth-1 col-md-3" style="width: 45%; margin-right:2%; margin-left: 2% ">
+                            <div class="post-title z-depth-1 hoverable col-md-3 " style="width: 45%; margin-right:2%; margin-left: 2% ">
                                 <div class="boxprofil">
                                     <h3>
                                         {{$user->name}}
