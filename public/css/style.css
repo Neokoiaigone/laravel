@@ -143,7 +143,7 @@ select{
 }
 
 .navbar-fixed-top.scrolled a {
-    font-size: 16px;
+    /*font-size: 16px;*/
 }
 
 .navbar-fixed-top.scrolled .nav-logo{
