@@ -98,7 +98,7 @@
                     <li class="btn3"><a href="{{ route('admin.index') }}">Administration</a></li>
                 @endif
                 <li class="btn3"><a href="{{ route('article.create') }}">Publier un défi</a></li>
-                <li><a class="btn3" href="{{ route('article.follow') }}">Voir vos abonnements</a></li>
+                <li class="btn3"><a href="{{ route('article.follow') }}">Voir vos abonnements</a></li>
                     <li class="btn3"> <a href="{{ route('user.index') }}">
                             Communauté
                         </a></li>
