@@ -24,7 +24,7 @@
                                     </h3>
                                     <h5>Compte créé le : {{ $user->created_at }}
                                         <br>
-                                        Nombre d'articles créés :
+                                        Nombre d'articles créés : {{ $user->article }}
                                     </h5>
                                 </div>
                             </div>

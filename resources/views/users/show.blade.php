@@ -11,7 +11,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-offset-1 col-md-10 ">
-                <div class="post-preview">
+                <div class="post-preview card" style="margin-top: 5%;">
                     @include('messages.success')
                     @include('messages.error')
                     @if(Auth::user()->id == $user->id)
@@ -60,10 +60,6 @@
         </div>
     </div>
     </div>
-
-    <hr>
-
-
     @endsection
     </body>
     </html>
