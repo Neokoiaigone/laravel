@@ -12,19 +12,19 @@
         <div class="row">
             <div class="col-md-12 ">
                 <div class="post-preview">
-                    <h2 style="font-size: 3em;">La communauté :</h2>
+                    <h2 style="font-size: 3em; text-align: center;">La communauté :</h2>
                     @include('messages.success')
                     @include('messages.error')
                     @foreach($users as $user)
-
                         <a href="{{ route('user.show', $user->id) }}">
-                            <div class="post-title z-depth-4 col l4 m6 s12">
+                            <div class="post-title z-depth-1 col-md-3" style="width: 45%; margin-right:2%; margin-left: 2% ">
                                 <div class="boxprofil">
                                     <h3>
                                         {{$user->name}}
                                     </h3>
                                     <h5>Compte créé le : {{ $user->created_at }}
-                                        Nombre d'article créé :
+                                        <br>
+                                        Nombre d'articles créés :
                                     </h5>
                                 </div>
                             </div>

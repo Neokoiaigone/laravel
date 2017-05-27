@@ -229,7 +229,13 @@ img{
 .boxprofil h5{
     text-align: left;
     font-size: 0.5em;
+    text-decoration: none;
 }
 .boxprofil h3{
+    color: #49ffc1;
     font-size: 1em;
+}
+
+.boxprofil h3:hover{
+    color: #247F60;
 }
